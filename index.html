@@ -16,14 +16,20 @@
     <link rel="icon" href="https://worldcoin-app.vercel.app/worldcoin.jpg" type="image/x-icon">
     <title>WLD MARKET</title>
     <style>
-        body {
-            background-color: white;
-            color: white;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+       /* Tipografía futurista */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #001f3f 40%, #FF4136 100%); /* Azul y Rojo */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
         .outer-container {
             background-color: white;
 
@@ -38,17 +44,22 @@
             border-radius: 10px; /* Opcional: redondea las esquinas de la imagen */
         }
 
-        .container {
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-        }
+        /* Contenedor principal */
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparencia blanca */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
 
-        h1 {
-            color: black;
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+     h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 0 10px #FF4136, 0 0 20px #001f3f, 0 0 30px #FF4136;
+    margin-bottom: 20px;
+}
 
         p {
             font-size: 18px;
@@ -68,12 +79,15 @@
         
 
         input[type="number"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+            background-color: rgba(0, 31, 63, 0.8); /* Azul oscuro con transparencia */
+    border: 2px solid #FF4136;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
         }
 
         .result-text {
@@ -82,16 +96,17 @@
             color: black;
         }
 .btn-calculate {
-    margin: 10px auto;
-    background-color: black;
+   background-color: #FF4136; /* Rojo de la bandera */
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border: 2px solid #001f3f; /* Azul de la bandera */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-transform: uppercase;
     cursor: pointer;
-    position: relative;
-    overflow: hidden; /* Agregado: oculta el desbordamiento para la animación */
-    font-size: 18px
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.4);
+}
 }
 
 .btn-calculate span {
