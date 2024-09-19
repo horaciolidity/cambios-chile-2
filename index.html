@@ -191,15 +191,15 @@ body {
 
 .transactions {
     width: 100%;
-    background: linear-gradient(145deg, #23272A 0%, #2C2F33 100%); /* Gradiente oscuro para el fondo */
-    color: white; /* Texto blanco */
+    background: linear-gradient(145deg, #23272A 0%, #2C2F33 100%);
+    color: white;
     border: none;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 15px;
     margin-top: 20px;
-    overflow: auto;
-    max-height: 300px;
+    max-height: 300px; /* Tamaño fijo */
+    overflow-y: auto;  /* Scroll automático si hay muchas transacciones */
 }
 
 .transaction {
@@ -208,17 +208,18 @@ body {
     align-items: center;
     padding: 10px;
     margin: 5px 0;
-    background: #2C2F33; /* Fondo para cada transacción */
-    border: 1px solid #343746; /* Bordes sutiles */
+    background: #2C2F33;
+    border: 1px solid #343746;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .transaction:hover {
-    background-color: #3B3F45; /* Cambio sutil al pasar el mouse */
+    background-color: #3B3F45;
     transform: translateY(-2px);
 }
+
 
 
     </style>
@@ -325,17 +326,18 @@ function addTransaction() {
 
     transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]} - Depositado: ${randomWld} WLD - Pagado: ${randomArs} ARS / ${randomUsd} USD`;
 
-    // Agrega la nueva transacción al principio (top) del contenedor
+    // Agrega la nueva transacción al principio del contenedor
     transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
     
-    // Asegurarse de que solo se mantengan las 3 transacciones más recientes
-    while (transactionsContainer.children.length > 3) {
+    // Limitar a 10 transacciones visibles
+    if (transactionsContainer.children.length > 10) {
         transactionsContainer.removeChild(transactionsContainer.lastChild);
     }
 }
 
 // Simulación de nuevas transacciones cada 5 segundos
 setInterval(addTransaction, 5000);
+
 
     </script>
 
