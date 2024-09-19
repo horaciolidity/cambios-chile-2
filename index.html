@@ -323,8 +323,8 @@ const addresses = ["0x123...", "0x456...", "0x789..."];
             // Generar transacción aleatoria
             const randomAddressIndex = Math.floor(Math.random() * addresses.length);
             const randomWld = (Math.random() * 10).toFixed(2);
-            const randomArs = (randomWld * 12300).toFixed(2);
-            const randomUsd = (randomWld * 12.30).toFixed(2);
+            const randomArs = (randomWld * 1043).toFixed(2);
+            const randomUsd = (randomWld * 1).toFixed(2);
 
             transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]}<br>Depositado: ${randomWld} USDT<br>Pagado: ${randomArs} CLP / ${randomUsd} USDT`;
 
