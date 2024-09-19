@@ -326,7 +326,7 @@ const addresses = ["0x123...", "0x456...", "0x789..."];
             const randomArs = (randomWld * 12300).toFixed(2);
             const randomUsd = (randomWld * 12.30).toFixed(2);
 
-            transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]}<br>Depositado: ${randomWld} CLP<br>Pagado: ${randomArs} USDT / ${randomUsd} USDT`;
+            transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]}<br>Depositado: ${randomWld} USDT<br>Pagado: ${randomArs} CLP / ${randomUsd} USDT`;
 
             // Insertar la nueva transacción al principio del contenedor
             transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
