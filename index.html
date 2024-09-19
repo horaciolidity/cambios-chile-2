@@ -326,13 +326,13 @@ function addTransaction() {
     const randomArs = (randomWld * 12300).toFixed(2); // Conversión simulada a ARS
     const randomUsd = (randomWld * 12.30).toFixed(2); // Conversión simulada a USD
 
-    transactionElem.innerHTML = Dirección: ${addresses[randomAddressIndex]} - Depositado: ${randomWld} WLD - Pagado: ${randomArs} ARS / ${randomUsd} USD;
+    transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]} - Depositado: ${randomWld} WLD - Pagado: ${randomArs} ARS / ${randomUsd} USD`;
 
-    // Agrega la nueva transacción al principio (top) del contenedor
+    // Agrega la nueva transacción al principio del contenedor
     transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
     
-    // Asegurarse de que solo se mantengan las 3 transacciones más recientes
-    while (transactionsContainer.children.length > 3) {
+    // Limitar a 10 transacciones visibles
+    if (transactionsContainer.children.length > 10) {
         transactionsContainer.removeChild(transactionsContainer.lastChild);
     }
 }
