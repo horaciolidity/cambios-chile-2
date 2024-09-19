@@ -36,6 +36,17 @@
             width: 100%;
             text-align: center;
         }
+        /* Estilo para hacer que el botón parpadee */
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
 
         h1 {
             font-size: 2.5rem;
