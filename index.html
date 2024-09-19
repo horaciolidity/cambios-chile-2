@@ -165,15 +165,27 @@
             document.getElementById('result').innerText = `Usted recibirá ${cotizacionCLP} CLP por ${usdtAmount} USDT.`;
         }
 
-        function addTransaction() {
-            const transactions = document.getElementById('transactions');
-            const transaction = document.createElement('div');
-            transaction.className = 'transaction';
-            transaction.innerText = `Transacción de ${Math.random().toFixed(2)} USDT realizada exitosamente.`;
-            transactions.appendChild(transaction);
-        }
+       function addTransaction() {
+    const transactions = document.getElementById('transactions');
 
-        setInterval(addTransaction, 5000);
+    // Generar un monto aleatorio entre 50 y 3788 USDT
+    const usdtAmount = Math.random() * (3788 - 50) + 50;
+    const cotizacionCLP = usdtAmount * 1042;  // Tasa de conversión 1 USDT = 1042 CLP
+
+    // Obtener la hora actual
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+
+    // Crear la transacción con el detalle
+    const transaction = document.createElement('div');
+    transaction.className = 'transaction';
+    transaction.innerText = `Transacción de ${usdtAmount.toFixed(2)} USDT realizada exitosamente. Usted recibió ${cotizacionCLP.toFixed(2)} CLP. Hora: ${time}`;
+
+    transactions.appendChild(transaction);
+}
+
+setInterval(addTransaction, 5000);
+
     </script>
 </body>
 </html>
