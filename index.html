@@ -1,347 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cotizador CLP/USDT Compra, venta y intercambio de USDT CLP en nuestro Marketplace. .">
-    <meta name="keywords" content="USDT, CLP,USDTcotizador , Compra, Venta, Marketplace, Proyecto DAO, Criptomoneda">
+    <meta name="description" content="Cotizador CLP/USDT Compra, venta e intercambio de USDT CLP en nuestro Marketplace.">
+    <meta name="keywords" content="USDT, CLP, Cotizador, Compra, Venta, Criptomoneda, Chile">
     <meta name="author" content="USDT THETER">
-
-    <meta property="og:title" content="Worldcoin Compra Venta Marketplace Proyecto DAO (WLD)">
-    <meta property="og:description" content="Compra, venta y intercambio de Worldcoin (WLD) en nuestro Marketplace. Participa en nuestro Proyecto DAO y únete a la comunidad de Worldcoin.">
-    <meta property="og:image" content="https://cambios-chile-2.vercel.app/chile.jfif"> 
+    <meta property="og:title" content="Cambios Chile - Casa de Cambio Profesional">
+    <meta property="og:description" content="Compra, venta e intercambio de criptomonedas como USDT y CLP en Chile.">
+    <meta property="og:image" content="https://cambios-chile-2.vercel.app/chile.jfif">
     <meta property="og:type" content="website">
-
     <link rel="icon" href="https://cambios-chile-2.vercel.app/chile.jfif" type="image/x-icon">
-    <title>CAMBIOS CHILE</title>
+    <title>Cambios Chile - Casa de Cambio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-       /* Tipografía futurista */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-body {
-   font-family: 'Orbitron', sans-serif;
-   margin: 0;
-   padding: 0;
-   background: linear-gradient(135deg, #001f3f 40%, #FF4136 100%);
-   color: white;
-   height: 100vh; /* Ajusta la altura al 100% de la pantalla */
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-        .outer-container {
-            background-color: white;
-
+        /* General */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #001f3f 40%, #FF4136 100%);
+            color: #333;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #001f3f;
+            margin-bottom: 20px;
+        }
+
         .banner-image {
-            max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 10px; /* Opcional: redondea las esquinas de la imagen */
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
         }
 
-        /* Contenedor principal */
-.container {
-    background-color: rgba(255, 255, 255, 0.1); /* Transparencia blanca */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    text-align: center;
-}
-
-     h1 {
-    font-size: 2.5rem;
-    color: white;
-    text-shadow: 0 0 10px #FF4136, 0 0 20px #001f3f, 0 0 30px #FF4136;
-    margin-bottom: 20px;
-}
-
-        p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .quote-container {
-            background-color: white;
-            border: 1px solid #4CAF50;
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 15px;
             border-radius: 10px;
-            padding: 70px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex; /* Agrega display: flex al contenedor de botones */
-            flex-direction: column; /* Alinea los botones en una columna */
-            align-items: center; /* Centra los elementos horizontalmente */
-        }
-        
-
-        input[type="number"] {
-            background-color: rgba(0, 31, 63, 0.8); /* Azul oscuro con transparencia */
-    border: 2px solid #FF4136;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    width: 100%;
-    box-sizing: border-box;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            box-sizing: border-box;
         }
 
-        .result-text {
-            font-size: 18px;
-            margin-top: 10px;
-            color: black;
-        }
-.btn-calculate {
-   background-color: #FF4136; /* Rojo de la bandera */
-    color: white;
-    border: 2px solid #001f3f; /* Azul de la bandera */
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.4);
-}
-
-
-.btn-calculate span {
-    margin-right: 10px;
-}
-
-.btn-calculate img {
-    width: 30px;
-    height: auto;
-}
-
-/* Pseudo-elemento ::before para simular efecto de carga */
-.btn-calculate::before {
-    content: "";
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    transition: width 2s ease, background-color 2s ease; /* Ajustado */
-}
-
-/* Efecto de brillo al hacer clic */
-.btn-calculate:active::before {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0); /* Se desvanece el brillo */
-    transition: width 0.5s ease, background-color 0.5s ease; /* Ajustado */
-}
-
-
-        .btn-sell {
-            margin-top: 10px;
-            background-color: #4CAF50;
+        .btn {
             display: inline-block;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background-color: #FF4136;
             color: white;
-            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
         }
 
+        .btn:hover {
+            background-color: #ff6347;
+        }
 
-        .label-text {
-    color: #3D3E3E;
-    font-size: 20px; /* Ajustado el tamaño del texto */
-    font-weight: bold; /* Agregada la propiedad para negrita */
-}
         .result-text {
-    font-family: monospace; 
-    color: #333;
-}
-
-.red-text {
-    color: #ff6666; 
-}
-         #referralLink {
-            background-color: #f0f0f0; /* Color de fondo */
-            color: #333; /* Color del texto */
-            padding: 10px; /* Espaciado interno */
-            border-radius: 5px; /* Bordes redondeados */
-            margin-top: 20px; /* Espacio exterior superior */
-            font-family: Arial, sans-serif; /* Tipo de fuente */
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
         }
 
-        #referralLink a {
-            color: #007bff; /* Color del enlace */
-            text-decoration: none; /* Sin subrayado */
-            font-weight: bold; /* Texto en negrita */
-        }
-
-        #referralLink a:hover {
-            text-decoration: underline; /* Subrayado al pasar el mouse */
-        }
-
-        h2 {
-  color: #007bff;
-  text-align: center;
-  margin-bottom: 20px;
-}
- /* Transacciones flotantes */
         .dashboard {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 600px;
-            z-index: 9999;
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
             color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
-.transactions {
-    width: 60%;
-    background: linear-gradient(145deg, #23272A 0%, #2C2F33 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    margin-top: 20px;
-    max-height: 100px; /* Tamaño fijo */
-    overflow-y: auto;  /* Scroll automático si hay muchas transacciones */
-}
 
-.transaction {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 5px 0;
-    background: #2C2F33;
-    border: 1px solid #343746;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
+        .transaction {
+            background: #2C2F33;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
 
-.transaction:hover {
-    background-color: #3B3F45;
-    transform: translateY(-2px);
-}
+        @media only screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
 
+            h1 {
+                font-size: 2rem;
+            }
 
+            input[type="number"], input[type="text"] {
+                padding: 10px;
+            }
 
+            .btn {
+                padding: 10px 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
-      
+    <div class="container">
+        <img src="https://cambios-chile-2.vercel.app/chile.jfif" alt="Banner Cambios Chile" class="banner-image">
+        <h1>Cambios Chile</h1>
+        <p>Compra, venta e intercambio de USDT a CLP.</p>
 
- 
-            <div class="quote-container">
-                                <img src="https://cambios-chile-2.vercel.app/chile.jfif" alt="Banner" class="banner-image">
+        <label for="usdtAmount">Cantidad de USDT a cambiar:</label>
+        <input type="number" id="usdtAmount" placeholder="Ingrese cantidad de USDT">
 
-                            <h1>CAMBIOS CHILE </h1>
+        <button class="btn" onclick="calcularCotizacion()">Calcular Cotización</button>
 
-                <label for="worldcoin" class="label-text">USDT a cambiar:</label>
-                <input type="number" id="worldcoin" placeholder="Cantidad de Worldcoin">
-                <p class="result-text" id="result"></p>
-                
- <button class="btn-calculate" onclick="calcularCotizacion()">
-    <span>Calcular Cotización CLP / USDT </span>
-    <img src="https://worldcoin-app.vercel.app/paypal.png" alt="Imagen Transparente">
-</button>
+        <p class="result-text" id="result"></p>
 
-
-
-
-        <a href="https://cambios-chile-2.vercel.app/intercambio.html" class="btn-sell">VENDER</a>
-       
-    <h2>Pagos inmediatos a cuenta Rut, Falabella, Santander. </h2>
-  
-<div style="color: black;">
-    <h2>Ingrese su dirección ERC20 (Red Optimism) para generar un enlace y gana 5 USDT por referido ACTIVO </h2>
-
-<!-- Formulario para la entrada del usuario -->
-<input type="text" id="addressInput" placeholder="Dirección Optimism">
-<button onclick="generateReferralLink()">Generar Referido</button>
-
-<p id="referralLink">Tu enlace de referido aparecerá aquí</p>
-
-    <div class="dashboard">
-  <h2>Últimas Transacciones</h2>
-  <div id="transactions" class="transactions">
-    <!-- Las transacciones se generan dinámicamente -->
-  </div> 
+        <div class="dashboard">
+            <h2>Últimas Transacciones</h2>
+            <div id="transactions">
+                <!-- Las transacciones aparecerán aquí -->
+            </div>
+        </div>
     </div>
-</body>
 
     <script>
-
-const addresses = ["0x123...", "0x456...", "0x789..."];
-
-
-
-        
-      function calcularCotizacion() {
-    var worldcoin = document.getElementById('worldcoin').value;
-    var cotizacionARS = worldcoin * 1042;
-    var cotizacionUSD = worldcoin * 1;
-    document.getElementById('result').innerText = `Usted recibirá: ${cotizacionARS} CLP por ${cotizacionUSD} USDT (1 USDT = 1042 CLP)`;
-}
-         function generateReferralLink() {
-        var address = document.getElementById("addressInput").value;
-        if (address === '') {
-            alert('Por favor, ingrese una dirección Optimism');
-            return;
-        }
-        
-        var network = "Optimism";
-        var pageName = document.title;
-        
-        var referralLink = window.location.href + "?network=" + encodeURIComponent(network) + "&ref=" + encodeURIComponent(address) + "&pageName=" + encodeURIComponent(pageName);
-        
-        // Establece un texto amigable para mostrar como el enlace
-        var displayText = "Haz clic aquí para tu referido";
-        
-        // Actualiza el HTML del enlace de referido para usar el texto amigable
-        document.getElementById("referralLink").innerHTML = 'Tu enlace de referido es: <a href="' + referralLink + '" target="_blank">' + displayText + '</a>';
-    }
-
-        
-       
- function addTransaction() {
-            const transactionsContainer = document.getElementById("transactions");
-
-            // Crear nuevo elemento de transacción
-            const transactionElem = document.createElement('div');
-            transactionElem.classList.add('transaction');
-
-            // Generar transacción aleatoria
-            const randomAddressIndex = Math.floor(Math.random() * addresses.length);
-            const randomWld = (Math.random() * 10).toFixed(2);
-            const randomArs = (randomWld * 1043).toFixed(2);
-            const randomUsd = (randomWld * 1).toFixed(2);
-
-            transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]}<br>Depositado: ${randomWld} USDT<br>Pagado: ${randomArs} CLP / ${randomUsd} USDT`;
-
-            // Insertar la nueva transacción al principio del contenedor
-            transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
-
-            // Limitar a 3 transacciones visibles
-            if (transactionsContainer.children.length > 3) {
-                transactionsContainer.removeChild(transactionsContainer.lastChild);
-            }
+        function calcularCotizacion() {
+            const usdtAmount = document.getElementById('usdtAmount').value;
+            const cotizacionCLP = usdtAmount * 1042;
+            document.getElementById('result').innerText = `Usted recibirá ${cotizacionCLP} CLP por ${usdtAmount} USDT.`;
         }
 
-        // Simulación de nuevas transacciones cada 5 segundos
+        function addTransaction() {
+            const transactions = document.getElementById('transactions');
+            const transaction = document.createElement('div');
+            transaction.className = 'transaction';
+            transaction.innerText = `Transacción de ${Math.random().toFixed(2)} USDT realizada exitosamente.`;
+            transactions.appendChild(transaction);
+        }
+
         setInterval(addTransaction, 5000);
-
-
-
     </script>
-
+</body>
 </html>
