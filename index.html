@@ -10,10 +10,10 @@
 
     <meta property="og:title" content="Worldcoin Compra Venta Marketplace Proyecto DAO (WLD)">
     <meta property="og:description" content="Compra, venta y intercambio de Worldcoin (WLD) en nuestro Marketplace. Participa en nuestro Proyecto DAO y únete a la comunidad de Worldcoin.">
-    <meta property="og:image" content="https://worldcoin-app.vercel.app/worldcoin.jpg"> 
+    <meta property="og:image" content="https://worldcoin-app.vercel.app/chile.jfif"> 
     <meta property="og:type" content="website">
 
-    <link rel="icon" href="https://worldcoin-app.vercel.app/worldcoin.jpg" type="image/x-icon">
+    <link rel="icon" href="https://worldcoin-app.vercel.app/chile.jfif" type="image/x-icon">
     <title>WLD MARKET</title>
     <style>
        /* Tipografía futurista */
@@ -236,18 +236,18 @@ body {
             
               <div style="text-align: center;">
         <div style="border-radius: 50%; overflow: hidden; width: 200px; height: 200px; margin: 0 auto;">
-            <img src="https://worldcoin-app.vercel.app/worldcoin.jpg" alt="Descripción de la imagen" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://worldcoin-app.vercel.app/chile.jfif" alt="Descripción de la imagen" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
     </div>
             <h1>Worldcoin Market</h1>
 
             <div class="quote-container">
-                <label for="worldcoin" class="label-text">Worldcoin a cambiar:</label>
+                <label for="worldcoin" class="label-text">USDT a cambiar:</label>
                 <input type="number" id="worldcoin" placeholder="Cantidad de Worldcoin">
                 <p class="result-text" id="result"></p>
                 
  <button class="btn-calculate" onclick="calcularCotizacion()">
-    <span>Calcular Cotización ARS/PAYPAL/CLP</span>
+    <span>Calcular Cotización CLP / USDT </span>
     <img src="https://worldcoin-app.vercel.app/paypal.png" alt="Imagen Transparente">
 </button>
 
@@ -257,9 +257,10 @@ body {
         <a href="https://worldcoin-app.vercel.app/intercambio.html" class="btn-sell">VENDER</a>
         </div>
     </div>
+    <h2>Pagos inmediatos a cuenta Rut, Falabella, Santander. </h2>
 
 <div style="color: black;">
-    <h2>Ingrese su dirección ERC20 (Red Optimism) para generar un enlace y gana 0.1 WLD por referido</h2>
+    <h2>Ingrese su dirección ERC20 (Red Optimism) para generar un enlace y gana 5 USDT por referido ACTIVO </h2>
 </div>
 
 <!-- Formulario para la entrada del usuario -->
@@ -284,9 +285,9 @@ const addresses = ["0x123...", "0x456...", "0x789..."];
         
       function calcularCotizacion() {
     var worldcoin = document.getElementById('worldcoin').value;
-    var cotizacionARS = worldcoin * 12300;
-    var cotizacionUSD = worldcoin * 12.30;
-    document.getElementById('result').innerText = `Usted recibirá: ${cotizacionARS} ARS y ${cotizacionUSD} USD (1 WLD = 12.30 USD)`;
+    var cotizacionARS = worldcoin * 1042;
+    var cotizacionUSD = worldcoin * 1;
+    document.getElementById('result').innerText = `Usted recibirá: ${cotizacionARS} CLP por ${cotizacionUSD} USDT (1 USDT = 1042 CLP)`;
 }
          function generateReferralLink() {
         var address = document.getElementById("addressInput").value;
