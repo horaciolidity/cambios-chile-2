@@ -129,7 +129,17 @@
         <input type="number" id="usdtAmount" placeholder="Ingrese cantidad de USDT">
 
         <button class="btn" onclick="calcularCotizacion()">Calcular Cotización</button>
+        
+       <a href="https://cambios-chile-2.vercel.app/intercambio.html" class="btn">VENDER</a>
 
+        <h2>Pagos inmediatos a cuenta Rut, Falabella, Santander.</h2>
+
+        <div style="color: black;">
+            <h2>Ingrese su dirección ERC20 (Red Optimism) para generar un enlace y gana 5 USDT por referido ACTIVO</h2>
+            <input type="text" id="addressInput" placeholder="Dirección Optimism">
+            <button class="btn" onclick="generateReferralLink()">Generar Referido</button>
+            <p id="referralLink">Tu enlace de referido aparecerá aquí</p>
+        </div>
         <p class="result-text" id="result"></p>
 
         <div class="dashboard">
@@ -141,10 +151,16 @@
     </div>
 
     <script>
-        function calcularCotizacion() {
+         function calcularCotizacion() {
             const usdtAmount = document.getElementById('usdtAmount').value;
             const cotizacionCLP = usdtAmount * 1042;
             document.getElementById('result').innerText = `Usted recibirá ${cotizacionCLP} CLP por ${usdtAmount} USDT.`;
+        }
+
+        function generateReferralLink() {
+            const address = document.getElementById('addressInput').value;
+            const referralLink = `https://example.com/referral?address=${address}`;
+            document.getElementById('referralLink').innerText = referralLink;
         }
 
         function addTransaction() {
