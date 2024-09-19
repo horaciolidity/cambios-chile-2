@@ -332,7 +332,7 @@ function addTransaction() {
     transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
     
     // Limitar a 10 transacciones visibles
-    if (transactionsContainer.children.length > 10) {
+    if (transactionsContainer.children.length > 3) {
         transactionsContainer.removeChild(transactionsContainer.lastChild);
     }
 }
