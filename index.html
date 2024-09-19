@@ -313,33 +313,32 @@ const addresses = ["0x123...", "0x456...", "0x789..."];
 
         
        
-// Función para agregar transacciones simuladas
-function addTransaction() {
-    const transactionsContainer = document.getElementById("transactions");
-    
-    // Creación de un nuevo elemento de transacción
-    const transactionElem = document.createElement('div');
-    transactionElem.classList.add('transaction');
-    
-    // Selección aleatoria de una dirección y cantidad de WLD
-    const randomAddressIndex = Math.floor(Math.random() * addresses.length);
-    const randomWld = (Math.random() * 10).toFixed(2); // Cantidad aleatoria de WLD
-    const randomArs = (randomWld * 12300).toFixed(2); // Conversión simulada a ARS
-    const randomUsd = (randomWld * 12.30).toFixed(2); // Conversión simulada a USD
+ function addTransaction() {
+            const transactionsContainer = document.getElementById("transactions");
 
-    transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]} - Depositado: ${randomWld} WLD - Pagado: ${randomArs} ARS / ${randomUsd} USD`;
+            // Crear nuevo elemento de transacción
+            const transactionElem = document.createElement('div');
+            transactionElem.classList.add('transaction');
 
-    // Agrega la nueva transacción al principio del contenedor
-    transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
-    
-    // Limitar a 10 transacciones visibles
-    if (transactionsContainer.children.length > 3) {
-        transactionsContainer.removeChild(transactionsContainer.lastChild);
-    }
-}
+            // Generar transacción aleatoria
+            const randomAddressIndex = Math.floor(Math.random() * addresses.length);
+            const randomWld = (Math.random() * 10).toFixed(2);
+            const randomArs = (randomWld * 12300).toFixed(2);
+            const randomUsd = (randomWld * 12.30).toFixed(2);
 
-// Simulación de nuevas transacciones cada 5 segundos
-setInterval(addTransaction, 5000);
+            transactionElem.innerHTML = `Dirección: ${addresses[randomAddressIndex]}<br>Depositado: ${randomWld} CLP<br>Pagado: ${randomArs} USDT / ${randomUsd} USDT`;
+
+            // Insertar la nueva transacción al principio del contenedor
+            transactionsContainer.insertBefore(transactionElem, transactionsContainer.firstChild);
+
+            // Limitar a 3 transacciones visibles
+            if (transactionsContainer.children.length > 3) {
+                transactionsContainer.removeChild(transactionsContainer.lastChild);
+            }
+        }
+
+        // Simulación de nuevas transacciones cada 5 segundos
+        setInterval(addTransaction, 5000);
 
 
 
