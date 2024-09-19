@@ -162,11 +162,30 @@
     </div>
 
     <script>
-        function calcularCotizacion() {
-            const usdtAmount = document.getElementById('usdtAmount').value;
-            const cotizacionCLP = usdtAmount * 1042;
-            document.getElementById('result').innerText = `Usted recibirá ${cotizacionCLP} CLP por ${usdtAmount} USDT.`;
-        }
+       function calcularCotizacion() {
+    const usdtAmount = document.getElementById('usdtAmount').value;
+    const cotizacionCLP = usdtAmount * 1042;
+
+    // Resaltar los valores de USDT y CLP en un color llamativo (por ejemplo, verde)
+    document.getElementById('result').innerHTML = `Usted recibirá <span style="color: #28a745; font-weight: bold;">${cotizacionCLP.toFixed(2)}</span> CLP por <span style="color: #28a745; font-weight: bold;">${usdtAmount}</span> USDT.`;
+
+    // Hacer parpadear el botón de "Vender"
+    parpadearBoton();
+}
+function parpadearBoton() {
+    const botonVender = document.querySelector('.btn-sell');
+    
+    // Agregar la clase para parpadear
+    botonVender.classList.add('blink');
+
+    // Detener el parpadeo después de 5 segundos
+    setTimeout(() => {
+        botonVender.classList.remove('blink');
+    }, 5000);
+}
+
+        
+
 function addTransaction() {
     const transactions = document.getElementById('transactions');
 
@@ -193,10 +212,15 @@ function addTransaction() {
     transaction.innerText = `Transacción de ${usdtAmount.toFixed(2)} USDT realizada exitosamente. Usted recibió ${cotizacionCLP.toFixed(2)} CLP. Address: ${address}. Hora: ${time}`;
 
     transactions.appendChild(transaction);
+
+    // Generar un intervalo aleatorio entre 3 y 8 segundos
+    const randomInterval = Math.random() * (8000 - 3000) + 3000;
+    setTimeout(addTransaction, randomInterval);
 }
 
-// Crear el intervalo para añadir una transacción cada 5 segundos
-setInterval(addTransaction, 5000);
+// Iniciar las transacciones aleatorias
+addTransaction();
+
 
 
     </script>
