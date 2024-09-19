@@ -116,6 +116,21 @@
                 padding: 10px 20px;
             }
         }
+        .btn-sell {
+            background-color: #28a745;
+            color: white;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .btn-sell:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 
@@ -129,6 +144,9 @@
         <input type="number" id="usdtAmount" placeholder="Ingrese cantidad de USDT">
 
         <button class="btn" onclick="calcularCotizacion()">Calcular Cotización</button>
+
+        <button class="btn-sell" onclick="window.location.href='https://cambios-chile-2.vercel.app/intercambio.html'">Vender USDT</button>
+
 
         <p class="result-text" id="result"></p>
 
