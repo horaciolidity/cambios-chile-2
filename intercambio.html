@@ -123,6 +123,20 @@
             margin-top: 20px;
             color: #4CAF50;
         }
+          .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #28a745; /* Color del spinner */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite; /* Animación de giro */
+            margin: 20px auto; /* Centra el spinner */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 
@@ -159,6 +173,8 @@
     </div>
 
     <div class="popup" id="popup">
+                <div class="spinner"></div> <!-- Spinner añadido aquí -->
+
         <div class="mensaje" id="mensaje">Procesando datos...</div>
         <div class="support-text">
             <p>Soporte: <a href="mailto:cambios-chile@cambios.org">cambios.chile@cambios.org</a></p>
